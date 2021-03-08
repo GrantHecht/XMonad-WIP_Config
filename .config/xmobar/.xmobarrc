@@ -1,0 +1,18 @@
+Config { font = "xft:mplus Nerd Font:weight=bold:pixelsize=12:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:weight=bold:pixelsize=12:antialias=true:hinting=true"
+                           ]
+       , bgColor = "#272822"
+       , fgColor = "#F92672"
+       , position = Top
+       , iconRoot = "/home/granthec/.xmonad/xpm/"
+       , commands = [ Run Weather "KVIH" ["-t","Temp: <tempF>F","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Cpu ["-t", "\xf108 Cpu: <total>%","-H","50","--high","red"] 20
+                    , Run Memory ["-t","\xf233 Mem: <usedratio>%"] 20
+                    , Run Date "\xf133 %b %d %Y %H:%M:%S" "date" 10
+                    , Run Com "uname" ["-r"] "" 3600
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %StdinReader% }{<fc=#b3afc2>  %uname% </fc><fc=#666666>|</fc><fc=#ecbe7b> %cpu% </fc><fc=#666666>|</fc><fc=#ff6c6b> %memory% </fc><fc=#666666>|</fc><fc=#98be65> %date% </fc><fc=#666666>|</fc><fc=#46d9ff> %KVIH% </fc>"
+       }
